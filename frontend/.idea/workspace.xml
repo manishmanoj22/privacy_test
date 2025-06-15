@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="402997e9-e64c-4552-a7f9-dd8a1f8b2c9e" name="Changes" comment="" />
+    <list default="true" id="402997e9-e64c-4552-a7f9-dd8a1f8b2c9e" name="Changes" comment="Backend added">
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -19,12 +22,12 @@
     &quot;assignee&quot;: &quot;manishmanoj22&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/manishmanoj22/my-privacy-app&quot;,
-    &quot;accountId&quot;: &quot;6e8576e8-bd69-4f5d-bb9a-4185357b2510&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/manishmanoj22/Project_Test_Privacy.git",
+    "accountId": "6e8576e8-bd69-4f5d-bb9a-4185357b2510"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -61,5 +64,9 @@
       <updated>1749986713989</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Backend added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Backend added" />
   </component>
 </project>
