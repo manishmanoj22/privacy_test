@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="402997e9-e64c-4552-a7f9-dd8a1f8b2c9e" name="Changes" comment="Backend added">
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" />
-    </list>
+    <list default="true" id="402997e9-e64c-4552-a7f9-dd8a1f8b2c9e" name="Changes" comment="Backend added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
