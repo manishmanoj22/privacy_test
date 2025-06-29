@@ -41,7 +41,7 @@ function MyApp({ consent, selectedOption }) {
                    backgroundColor: consent === 'accept' ? (selectedOption || 'white') : 'white',
                    padding: "10px"
                  }}>
-          This is my page and you have rejected consent to processing data
+          This is my page and you have rejected consent to processing personal data
         </p>
       </div>
     );
