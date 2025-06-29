@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 export default function PrivacyNotice({ consent, selectedOption }) {
   return (
     <div style={{ padding: "20px" }}>
@@ -10,7 +11,7 @@ export default function PrivacyNotice({ consent, selectedOption }) {
         Current consent: <strong style={{ color: consent === "accept" ? selectedOption || "black" : "black" }}>{consent || "Not provided"}</strong>
       </p>
       <p>
-        For more information, contact us at privacy@example.com.
+        For more information, you can reach me via the <Link to="/contact-me" style={{ color: 'blue', textDecoration: 'underline' }}>Contact Form</Link>.
       </p>
     </div>
   );

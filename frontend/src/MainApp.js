@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import MyPrivacyApp from './App'; // Your main page
 import PrivacyNotice from './PrivacyNotice';
+import ContactPage from './Contact';
 import { CookieBanner, FloatingButton } from './PreferenceCenter';
 
 function getCookieValue(name) {
@@ -60,7 +61,8 @@ export default function MainApp() {
       <div>
         <nav style={{ marginBottom: '15px' }}>
           <Link to="/" style={{ marginRight: '10px' }}>Home</Link>
-          <Link to="/privacy-notice">Privacy Notice</Link>
+          <Link to="/privacy-notice" style={{ marginRight: '10px' }}>Privacy Notice</Link>
+          <Link to="/contact-me">Contact Me</Link>
         </nav>
 
         <CookieBanner
@@ -82,7 +84,7 @@ export default function MainApp() {
                 handleConsent={handleConsent}
                 handleBanner={handleBanner}
                 loaded={loaded}
-                selectedOption={selectedOption}         // pass down
+                selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
               />
             }
@@ -96,7 +98,21 @@ export default function MainApp() {
                 handleConsent={handleConsent}
                 handleBanner={handleBanner}
                 loaded={loaded}
-                selectedOption={selectedOption}         // pass down
+                selectedOption={selectedOption}
+                setSelectedOption={setSelectedOption}
+              />
+            }
+          />
+          <Route
+            path="/contact-me"
+            element={
+              <ContactPage
+                consent={consent}
+                bannerstate={bannerstate}
+                handleConsent={handleConsent}
+                handleBanner={handleBanner}
+                loaded={loaded}
+                selectedOption={selectedOption}
                 setSelectedOption={setSelectedOption}
               />
             }
