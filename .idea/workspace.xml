@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Included contact form and changes in other pages to accomodate this form">
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/config/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/ContactController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/entity/ContactMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/repository/ContactMessageRepository.java" afterDir="false" />
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/PrivacyBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/PrivacyBackendApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/target/classes/com/manish/privacy/privacy_backend/PrivacyBackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/target/classes/com/manish/privacy/privacy_backend/PrivacyBackendApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +35,9 @@
     "accountId": "6e8576e8-bd69-4f5d-bb9a-4185357b2510"
   }
 }]]></component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -89,7 +83,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751225875315</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table.">
+      <option name="closed" value="true" />
+      <created>1751746076694</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1751746076694</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -106,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="text change" />
     <MESSAGE value="Included contact form and changes in other pages to accomodate this form" />
-    <option name="LAST_COMMIT_MESSAGE" value="Included contact form and changes in other pages to accomodate this form" />
+    <MESSAGE value="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table." />
+    <option name="LAST_COMMIT_MESSAGE" value="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table." />
   </component>
 </project>
