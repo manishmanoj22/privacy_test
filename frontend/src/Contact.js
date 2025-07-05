@@ -28,9 +28,25 @@ export default function ContactPage({ consent }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for contacting me!');
-    setFormData({ name: '', email: '', message: '' });
+    fetch('http://localhost:8080/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Thank you for contacting me!');
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          alert('Something went wrong.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Server error.');
+      });
   }
 
   return (

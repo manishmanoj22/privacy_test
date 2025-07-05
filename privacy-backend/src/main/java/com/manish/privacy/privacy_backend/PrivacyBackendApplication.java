@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PrivacyBackendApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(PrivacyBackendApplication.class, args);
+
+		System.out.println("Hello, World!");
 	}
 
 }
