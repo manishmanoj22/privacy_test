@@ -28,7 +28,8 @@ export default function ContactPage({ consent }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch('http://localhost:8080/api/contact', {
+    console.log(`API base URL: ${process.env.REACT_APP_API_BASE_URL}`);
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

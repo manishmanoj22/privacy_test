@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table.">
-      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/PrivacyBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/PrivacyBackendApplication.java" afterDir="false" />
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="docker updates">
+      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Contact.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +108,19 @@
       <option name="project" value="LOCAL" />
       <updated>1751751942009</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="docker updates">
+      <option name="closed" value="true" />
+      <created>1751751998790</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1751751998790</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -123,8 +136,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="text change" />
     <MESSAGE value="Included contact form and changes in other pages to accomodate this form" />
-    <MESSAGE value="docker updates" />
     <MESSAGE value="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table." />
-    <option name="LAST_COMMIT_MESSAGE" value="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table." />
+    <MESSAGE value="docker updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="docker updates" />
   </component>
 </project>
