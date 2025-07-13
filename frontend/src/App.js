@@ -79,7 +79,17 @@ function MyPrivacyApp({ consent, bannerstate, handleConsent, handleBanner, loade
   };
 
   function handleChange(event) {
-    setSelectedOption(event.target.value);
+    const selectedValue = event.target.value;
+      setSelectedOption(selectedValue);
+
+      // ✅ Track manually with GA4
+      if (consent === 'accept' && window.gtag) {
+        window.gtag('event', 'dropdown_selection', {
+          event_category: 'User Interaction',
+          event_label: selectedValue,
+          value: selectedValue
+        });
+      }
   }
 
   function getCookieValue(name) {
@@ -170,6 +180,7 @@ useEffect(() => {
   return (
     <div>
       <MyApp consent={consent} selectedOption={selectedOption} />
+      <iframe title="vimeo-player" src="https://player.vimeo.com/video/1087658066?h=43195079d7" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
       <DropDown selectedOption={selectedOption} handleChange={handleChange} />
       {ipdetail}
     </div>

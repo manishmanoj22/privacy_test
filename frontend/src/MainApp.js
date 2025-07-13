@@ -22,6 +22,7 @@ export default function MainApp() {
   const [loaded, setLoaded] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
+
   useEffect(() => {
     const savedConsent = getCookieValue("consentState");
     const savedBannerState = getCookieValue("bannerState");
@@ -43,6 +44,36 @@ export default function MainApp() {
 
     setLoaded(true);
   }, []);
+
+useEffect(() => {
+  if (consent === 'accept') {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-E2LTRKNXKE';
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied'
+    });
+
+    gtag('js', new Date());
+
+    gtag('consent', 'update', {
+      ad_storage: 'granted',
+      analytics_storage: 'granted'
+    });
+
+    gtag('config', 'G-E2LTRKNXKE');
+  }
+}, [consent]);
+
 
   function handleConsent(choice) {
     setConsent(choice);

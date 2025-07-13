@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="docker updates">
-      <change afterPath="$PROJECT_DIR$/frontend/.env" afterDir="false" />
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="env variable update, submit connection to render postgres">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Contact.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/MainApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/MainApp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1751751998790</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="env variable update, submit connection to render postgres">
+      <option name="closed" value="true" />
+      <created>1751827763765</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827763765</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -138,6 +147,7 @@
     <MESSAGE value="Included contact form and changes in other pages to accomodate this form" />
     <MESSAGE value="Included contact form and changes in other pages to accomodate the form, along with postgreSQL table." />
     <MESSAGE value="docker updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="docker updates" />
+    <MESSAGE value="env variable update, submit connection to render postgres" />
+    <option name="LAST_COMMIT_MESSAGE" value="env variable update, submit connection to render postgres" />
   </component>
 </project>

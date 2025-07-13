@@ -48,6 +48,14 @@ export default function ContactPage({ consent }) {
         console.error('Error:', error);
         alert('Server error.');
       });
+
+      if (consent === 'accept' && window.gtag) {
+              window.gtag('event', 'form_submit', {
+                event_category: 'User Interaction',
+                event_label: 'User Email',
+                value: formData.email
+              });
+            }
   }
 
   return (
