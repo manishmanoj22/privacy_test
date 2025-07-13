@@ -180,7 +180,14 @@ useEffect(() => {
   return (
     <div>
       <MyApp consent={consent} selectedOption={selectedOption} />
-      <iframe title="vimeo-player" src="https://player.vimeo.com/video/1087658066?h=43195079d7" width="640" height="360" frameborder="0"    allowfullscreen></iframe>
+      <div className="video-container">
+          <iframe
+            title="vimeo-player"
+            src="https://player.vimeo.com/video/1087658066?h=43195079d7"
+            frameBorder="0"
+            allowFullScreen
+          ></iframe>
+        </div>
       <DropDown selectedOption={selectedOption} handleChange={handleChange} />
       {ipdetail}
     </div>
