@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Updated size and layout of some elements like preference center floating box, video, contact form etc.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/entity/LoginData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/repository/LoginDataRepository.java" afterDir="false" />
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Login page and backend updates for login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/MainApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/MainApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/entity/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/entity/LoginData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752412519472</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Login page and backend updates for login">
+      <option name="closed" value="true" />
+      <created>1752877271945</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1752877271945</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -177,6 +181,7 @@
     <MESSAGE value="Added google cookies, vimeo, and also GA to track certain events" />
     <MESSAGE value="preference centre moved" />
     <MESSAGE value="Updated size and layout of some elements like preference center floating box, video, contact form etc." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated size and layout of some elements like preference center floating box, video, contact form etc." />
+    <MESSAGE value="Login page and backend updates for login" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login page and backend updates for login" />
   </component>
 </project>
