@@ -52,6 +52,20 @@ function isAuthenticated() {
   }, []);
 
 useEffect(() => {
+  const handleStorageChange = () => {
+    setIsLoggedIn(localStorage.getItem('isLoggedIn') === 'true');
+  };
+
+  window.addEventListener('storage', handleStorageChange);
+  const interval = setInterval(handleStorageChange, 1000);
+
+  return () => {
+    window.removeEventListener('storage', handleStorageChange);
+    clearInterval(interval);
+  };
+}, []);
+
+useEffect(() => {
   if (consent === 'accept') {
     const script = document.createElement('script');
     script.async = true;
@@ -160,6 +174,7 @@ useEffect(() => {
                     path="/login"
                     element={
                       <LoginPage
+                        setIsLoggedIn={setIsLoggedIn}
                         consent={consent}
                         bannerstate={bannerstate}
                         handleConsent={handleConsent}

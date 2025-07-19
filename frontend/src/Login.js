@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import { useNavigate } from 'react-router-dom'; // ✅ IMPORT
 
-export default function LoginPage({ consent }) {
+export default function LoginPage({ consent, setIsLoggedIn }) {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -10,7 +11,7 @@ export default function LoginPage({ consent }) {
 
   const [isValid, setIsValid] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
-
+const navigate = useNavigate(); // ✅ INITIALIZE
   // Validate email whenever formData.email changes
 useEffect(() => {
   const email = formData.email;
@@ -61,6 +62,8 @@ useEffect(() => {
           if (isLogin) {
             alert('Login successful!');
             localStorage.setItem('isLoggedIn', 'true'); // ✅ set login flag
+            setIsLoggedIn(true); // ✅ immediately set login status
+            navigate('/contact-messages');
           } else {
             alert('Signup successful!');
           }
