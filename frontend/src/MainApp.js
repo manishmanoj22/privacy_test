@@ -23,7 +23,7 @@ export default function MainApp() {
   const [bannerstate, setBannerstate] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-
+  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
 
 function isAuthenticated() {
   return localStorage.getItem('isLoggedIn') === 'true';
@@ -173,7 +173,7 @@ useEffect(() => {
 
           <Route
                               path="/contact-messages"
-                              element={ isAuthenticated() ? (
+                              element={isLoggedIn ? (
                                 <ContactMessagesPage
                                   consent={consent}
                                   bannerstate={bannerstate}
