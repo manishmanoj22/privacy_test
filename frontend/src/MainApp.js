@@ -1,7 +1,7 @@
 // src/MainApp.js
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import MyPrivacyApp from './App'; // Your main page
 import PrivacyNotice from './PrivacyNotice';
 import ContactPage from './Contact';
@@ -24,6 +24,10 @@ export default function MainApp() {
   const [loaded, setLoaded] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
 
+
+function isAuthenticated() {
+  return localStorage.getItem('isLoggedIn') === 'true';
+}
 
   useEffect(() => {
     const savedConsent = getCookieValue("consentState");
@@ -169,7 +173,7 @@ useEffect(() => {
 
           <Route
                               path="/contact-messages"
-                              element={
+                              element={ isAuthenticated() ? (
                                 <ContactMessagesPage
                                   consent={consent}
                                   bannerstate={bannerstate}
@@ -178,7 +182,9 @@ useEffect(() => {
                                   loaded={loaded}
                                   selectedOption={selectedOption}
                                   setSelectedOption={setSelectedOption}
-                                />
+                                />) : (
+                                        <Navigate to="/login" replace />
+                                      )
                               }
                             />
         </Routes>

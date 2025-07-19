@@ -60,6 +60,7 @@ useEffect(() => {
         if (response.ok) {
           if (isLogin) {
             alert('Login successful!');
+            localStorage.setItem('isLoggedIn', 'true'); // ✅ set login flag
           } else {
             alert('Signup successful!');
           }
