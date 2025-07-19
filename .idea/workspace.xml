@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Login page and backend updates for login">
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="password setter error fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/entity/LoginData.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/entity/LoginData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/repository/LoginDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/repository/LoginDataRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-backend/target/classes/com/manish/privacy/privacy_backend/PrivacyBackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/target/classes/com/manish/privacy/privacy_backend/PrivacyBackendApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752877271945</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="password setter error fix">
+      <option name="closed" value="true" />
+      <created>1752878227134</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1752878227134</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -182,6 +194,7 @@
     <MESSAGE value="preference centre moved" />
     <MESSAGE value="Updated size and layout of some elements like preference center floating box, video, contact form etc." />
     <MESSAGE value="Login page and backend updates for login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login page and backend updates for login" />
+    <MESSAGE value="password setter error fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="password setter error fix" />
   </component>
 </project>

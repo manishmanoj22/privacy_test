@@ -5,6 +5,8 @@ import com.manish.privacy.privacy_backend.entity.LoginData;
 
 import com.manish.privacy.privacy_backend.repository.LoginDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")  // Allow React frontend to call backend
@@ -15,11 +17,26 @@ import org.springframework.web.bind.annotation.*;
 public class LoginController {
 
     @Autowired
-private LoginDataRepository loginDataRepository;
+    private LoginDataRepository loginDataRepository;
 
+    // Signup endpoint
     @PostMapping
-    public LoginData saveMessage(@RequestBody LoginData message) {
-        return loginDataRepository.save(message);
+    public ResponseEntity<?> saveMessage(@RequestBody LoginData message) {
+        // Check if email already exists
+        if (loginDataRepository.existsByEmail(message.getEmail())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Email already registered.");
+        }
+        return ResponseEntity.ok(loginDataRepository.save(message));
+    }
+
+    // Login (authentication) endpoint
+    @PostMapping("/authenticate")
+    public boolean authenticateUser(@RequestBody LoginData loginData) {
+        return loginDataRepository.existsByEmailAndPassword(
+                loginData.getEmail(),
+                loginData.getPassword()
+        );
     }
 }
 

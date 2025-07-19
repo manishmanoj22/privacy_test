@@ -5,17 +5,20 @@ export default function LoginPage({ consent }) {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
+    confirm_password: ''
   });
 
   const [isValid, setIsValid] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
   // Validate email whenever formData.email changes
 useEffect(() => {
   const email = formData.email;
   const password = formData.password;
-  const valid = email.length > 6 && email.includes('@') && password.length > 6;
+  const confirm_password = formData.confirm_password;
+  const valid = email.length > 6 && email.includes('@') && password.length > 6 && password===confirm_password;
   setIsValid(valid);
-}, [formData.email, formData.password]);
+}, [formData.email, formData.password, formData.confirm_password]);
 
 
   function handleChange(e) {
@@ -30,17 +33,28 @@ useEffect(() => {
   function handleSubmit(e) {
     e.preventDefault();
     console.log(`API base URL: ${process.env.REACT_APP_API_BASE_URL}`);
-    fetch(`${process.env.REACT_APP_API_BASE_URL}/api/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-      .then(response => {
+
+    const endpoint = isLogin ? '/api/login/authenticate' : '/api/login';
+
+    fetch(`${process.env.REACT_APP_API_BASE_URL}${endpoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(async response => {
         if (response.ok) {
-          alert('Thank you for contacting me!');
-          setFormData({ email: '', password: '' });
+          if (isLogin) {
+            alert('Login successful!');
+          } else {
+            alert('Signup successful!');
+          }
+          setFormData({ name: '', email: '', password: '', confirm_password: '' });
+        } else if (response.status === 409 && !isLogin) {
+          alert('Email already registered. Please log in.');
+        } else if (response.status === 401 && isLogin) {
+          alert('Invalid email or password.');
         } else {
           alert('Something went wrong.');
         }
@@ -49,6 +63,7 @@ useEffect(() => {
         console.error('Error:', error);
         alert('Server error.');
       });
+
 
       if (consent === 'accept' && window.gtag) {
               window.gtag('event', 'form_submit', {
@@ -60,45 +75,47 @@ useEffect(() => {
   }
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Login Page</h2>
+    <>
+        <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
 
-      <div style={{ marginTop: "20px", padding: "10px", backgroundColor: "#f0f0f0", display: "inline-block",minWidth: "410px", borderRadius: "6px"  }}>
-        <form onSubmit={handleSubmit} style={{ maxWidth: 400, textAlign: 'center' }}>
+        <form onSubmit={handleSubmit}>
+        <label>Name: </label>
+          <input name="email" value={formData.email} onChange={handleChange} required />
+          <br />
+          <br />
+          <label>Password: </label>
+          <input name="password" value={formData.password} onChange={handleChange} required />
+          <br />
+          <br />
 
-          <div style = {{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-            <label style={{ width: '89px', textAlign: 'right' }}>Email:</label>
+          {!isLogin && (
+            <div>
+            <label>Confirm Password: </label>
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              name="confirm_password"
+              value={formData.confirm_password}
               onChange={handleChange}
               required
-              style={{ width: '100%', marginLeft: '20px' }}
-
             />
-          </div>
+            <br />
+                      <br />
+            </div>
+          )}
 
-          <div style = {{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-            <label style={{ display: 'block', marginBottom: '5px', marginTop: '5px'  }}>Password:</label>
-            <input
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              required
-              style={{ width: '100%', marginLeft: '20px' }}
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={!isValid}
-            style={{ marginTop: '10px' }}
-          >
-            Submit
+          <button type="submit" disabled={!isValid}>
+            {isLogin ? 'Login' : 'Sign Up'}
           </button>
         </form>
-      </div>
-    </div>
+
+        <p style={{ marginTop: '10px' }}>
+          {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
+          <span
+            style={{ color: 'blue', cursor: 'pointer' }}
+            onClick={() => setIsLogin(!isLogin)}
+          >
+            {isLogin ? 'Sign Up' : 'Login'}
+          </span>
+        </p>
+      </>
   );
 }
