@@ -12,14 +12,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")  // Allow React frontend to call backend
 @RestController
 @RequestMapping("/api/login")
-
-
 public class LoginController {
 
     @Autowired
     private LoginDataRepository loginDataRepository;
-
-    // Signup endpoint
     @PostMapping
     public ResponseEntity<?> saveMessage(@RequestBody LoginData message) {
         // Check if email already exists
@@ -30,13 +26,16 @@ public class LoginController {
         return ResponseEntity.ok(loginDataRepository.save(message));
     }
 
-    // Login (authentication) endpoint
+
     @PostMapping("/authenticate")
-    public boolean authenticateUser(@RequestBody LoginData loginData) {
-        return loginDataRepository.existsByEmailAndPassword(
-                loginData.getEmail(),
-                loginData.getPassword()
-        );
+    public ResponseEntity<?> authenticate(@RequestBody LoginData loginData) {
+        boolean exists = loginDataRepository.existsByEmailAndPassword(loginData.getEmail(), loginData.getPassword());
+
+        if (exists) {
+            return ResponseEntity.ok("Login successful");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+        }
     }
 }
 
