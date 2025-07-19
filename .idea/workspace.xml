@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="password setter error fix">
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/repository/LoginDataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/repository/LoginDataRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/target/classes/com/manish/privacy/privacy_backend/PrivacyBackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/target/classes/com/manish/privacy/privacy_backend/PrivacyBackendApplication.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752878227134</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes.">
+      <option name="closed" value="true" />
+      <created>1752952654196</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1752952654196</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -195,6 +199,7 @@
     <MESSAGE value="Updated size and layout of some elements like preference center floating box, video, contact form etc." />
     <MESSAGE value="Login page and backend updates for login" />
     <MESSAGE value="password setter error fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="password setter error fix" />
+    <MESSAGE value="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes." />
   </component>
 </project>

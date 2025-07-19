@@ -16,9 +16,22 @@ useEffect(() => {
   const email = formData.email;
   const password = formData.password;
   const confirm_password = formData.confirm_password;
-  const valid = email.length > 6 && email.includes('@') && password.length > 6 && password===confirm_password;
-  setIsValid(valid);
-}, [formData.email, formData.password, formData.confirm_password]);
+ let valid = false;
+
+   if (isLogin) {
+     // Login: just check email and password
+     valid = email.length > 6 && email.includes('@') && password.length > 6;
+   } else {
+     // Signup: check email, password, and confirm_password match
+     valid =
+       email.length > 6 &&
+       email.includes('@') &&
+       password.length > 6 &&
+       password === confirm_password;
+   }
+
+   setIsValid(valid);
+ }, [formData.email, formData.password, formData.confirm_password, isLogin]);
 
 
   function handleChange(e) {
@@ -79,7 +92,7 @@ useEffect(() => {
         <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
 
         <form onSubmit={handleSubmit}>
-        <label>Name: </label>
+        <label>Email: </label>
           <input name="email" value={formData.email} onChange={handleChange} required />
           <br />
           <br />
