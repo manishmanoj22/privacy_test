@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes.">
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="Updated logic to ensure differentiation in button visibility based on login or signup page">
+      <change afterPath="$PROJECT_DIR$/frontend/src/ContactMessagesPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/MainApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/MainApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/ContactController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752952654196</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated logic to ensure differentiation in button visibility based on login or signup page">
+      <option name="closed" value="true" />
+      <created>1752953236091</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1752953236091</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -200,6 +210,7 @@
     <MESSAGE value="Login page and backend updates for login" />
     <MESSAGE value="password setter error fix" />
     <MESSAGE value="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Login and sign-up logic build in frontend. Backend updates made to incorporate the same changes." />
+    <MESSAGE value="Updated logic to ensure differentiation in button visibility based on login or signup page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated logic to ensure differentiation in button visibility based on login or signup page" />
   </component>
 </project>

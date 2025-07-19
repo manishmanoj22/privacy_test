@@ -7,6 +7,7 @@ import PrivacyNotice from './PrivacyNotice';
 import ContactPage from './Contact';
 import LoginPage from './Login';
 import { CookieBanner, FloatingButton } from './PreferenceCenter';
+import ContactMessagesPage from './ContactMessagesPage';
 
 function getCookieValue(name) {
   const cookies = document.cookie.split(';');
@@ -95,7 +96,8 @@ useEffect(() => {
           <Link to="/" style={{ marginRight: '10px' }}>Home</Link>
           <Link to="/privacy-notice" style={{ marginRight: '10px' }}>Privacy Notice</Link>
           <Link to="/contact-me" style={{ marginRight: '10px' }}>Contact Me</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/login" style={{ marginRight: '10px' }}>Login</Link>
+          <Link to="/contact-messages">Contact Messages</Link>
         </nav>
 
         <CookieBanner
@@ -164,6 +166,21 @@ useEffect(() => {
                       />
                     }
                   />
+
+          <Route
+                              path="/contact-messages"
+                              element={
+                                <ContactMessagesPage
+                                  consent={consent}
+                                  bannerstate={bannerstate}
+                                  handleConsent={handleConsent}
+                                  handleBanner={handleBanner}
+                                  loaded={loaded}
+                                  selectedOption={selectedOption}
+                                  setSelectedOption={setSelectedOption}
+                                />
+                              }
+                            />
         </Routes>
       </div>
     </Router>
