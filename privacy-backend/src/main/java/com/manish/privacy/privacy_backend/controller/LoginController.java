@@ -45,11 +45,12 @@ public class LoginController {
             String token = jwtUtil.generateToken(new org.springframework.security.core.userdetails.User(
                     loginData.getEmail(), "", java.util.Collections.emptyList()));
 
-            Cookie cookie = new Cookie("jwt", token); // name must match what frontend checks
+            Cookie cookie = new Cookie("jwt", token);
             cookie.setHttpOnly(true);
-            cookie.setSecure(true); // Use HTTPS in production
+            cookie.setSecure(true); // ✅ Required for cross-origin HTTPS
             cookie.setPath("/");
-            cookie.setMaxAge(24 * 60 * 60); // 1 day
+            cookie.setMaxAge(24 * 60 * 60);
+            response.addCookie(cookie);
 
             response.addCookie(cookie);
             return ResponseEntity.ok("Login successful");

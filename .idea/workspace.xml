@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="403 ERROR authentication resolution">
-      <change afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/config/WebConfig.java" afterDir="false" />
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="403. 401 ERROR authentication resolution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/config/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/config/JwtUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/controller/LoginController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -309,7 +307,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753029065837</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="403. 401 ERROR authentication resolution">
+      <option name="closed" value="true" />
+      <created>1753034990136</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1753034990136</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -346,6 +352,7 @@
     <MESSAGE value="JWT token and soring security" />
     <MESSAGE value="CORS error resolution" />
     <MESSAGE value="403 ERROR authentication resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="403 ERROR authentication resolution" />
+    <MESSAGE value="403. 401 ERROR authentication resolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="403. 401 ERROR authentication resolution" />
   </component>
 </project>
