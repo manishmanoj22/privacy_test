@@ -45,14 +45,13 @@ public class LoginController {
             String token = jwtUtil.generateToken(new org.springframework.security.core.userdetails.User(
                     loginData.getEmail(), "", java.util.Collections.emptyList()));
 
-            Cookie cookie = new Cookie("jwt", token);
-            cookie.setHttpOnly(true);
-            cookie.setSecure(true); // ✅ Required for cross-origin HTTPS
-            cookie.setPath("/");
-            cookie.setMaxAge(24 * 60 * 60);
-            response.addCookie(cookie);
+            // ✅ Use manual Set-Cookie header for maximum control
+            String cookieString = String.format(
+                    "jwt=%s; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=%d",
+                    token, 24 * 60 * 60
+            );
+            response.setHeader("Set-Cookie", cookieString);
 
-            response.addCookie(cookie);
             return ResponseEntity.ok("Login successful");
         }
 
