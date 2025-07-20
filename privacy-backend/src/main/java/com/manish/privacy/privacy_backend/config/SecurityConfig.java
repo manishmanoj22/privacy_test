@@ -32,9 +32,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // <-- /Enable CORS with custom config
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/login", "/api/register").permitAll()
+                        .requestMatchers("/api/login/**", "/api/register").permitAll() // ✅ fixed line
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
@@ -46,14 +46,12 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // Define your CORS configuration here
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Replace this with your frontend origin URL in dev or production
+        // ✅ Use the correct frontend domain
         configuration.setAllowedOriginPatterns(List.of("https://privacy-test-frontend.onrender.com"));
-
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(List.of("*"));

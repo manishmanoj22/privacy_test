@@ -39,13 +39,16 @@ export default function LoginPage({ consent, setIsLoggedIn }) {
     e.preventDefault();
 
     const endpoint = isLogin ? '/api/login/authenticate' : '/api/login';
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}${endpoint}`;
 
-    fetch(`${process.env.REACT_APP_API_BASE_URL}${endpoint}`, {
+    console.log('Submitting to:', apiUrl); // 🪵 Debugging tip
+
+    fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include', // ✅ IMPORTANT: Allows cookie to be stored
+      credentials: 'include', // ✅ Include cookie
       body: JSON.stringify(formData)
     })
       .then(async response => {
@@ -87,10 +90,22 @@ export default function LoginPage({ consent, setIsLoggedIn }) {
       <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
       <form onSubmit={handleSubmit}>
         <label>Email: </label>
-        <input name="email" value={formData.email} onChange={handleChange} required />
+        <input
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
         <br /><br />
         <label>Password: </label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
         <br /><br />
         {!isLogin && (
           <>
