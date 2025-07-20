@@ -8,19 +8,22 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Component
 public class JwtUtil {
-    private final String SECRET_KEY = "your-secret-key";
+    private final String SECRET = "your-secret-key";
+    public String getSecretKey() {
+        return SECRET;
+    }
 
     public String generateToken(UserDetails userDetails) {
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .signWith(SignatureAlgorithm.HS256, SECRET)
                 .compact();
     }
 
     public String extractUsername(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getSubject();
+        return Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody().getSubject();
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
@@ -29,6 +32,6 @@ public class JwtUtil {
     }
 
     private boolean isTokenExpired(String token) {
-        return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody().getExpiration().before(new Date());
+        return Jwts.parser().setSigningKey(SECRET).parseClaimsJws(token).getBody().getExpiration().before(new Date());
     }
 }

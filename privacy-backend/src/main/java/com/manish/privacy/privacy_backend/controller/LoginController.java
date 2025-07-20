@@ -68,7 +68,7 @@ public class LoginController {
                     String token = cookie.getValue();
                     try {
                         Claims claims = Jwts.parser()
-                                .setSigningKey("your-secret-key") // Match secret from JwtUtil
+                                .setSigningKey(jwtUtil.getSecretKey()) // ✅ Match the secret used in JwtUtil
                                 .parseClaimsJws(token)
                                 .getBody();
 
