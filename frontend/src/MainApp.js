@@ -23,11 +23,7 @@ export default function MainApp() {
   const [bannerstate, setBannerstate] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('isLoggedIn') === 'true');
-
-function isAuthenticated() {
-  return localStorage.getItem('isLoggedIn') === 'true';
-}
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const savedConsent = getCookieValue("consentState");
@@ -52,18 +48,25 @@ function isAuthenticated() {
   }, []);
 
 useEffect(() => {
-  const handleStorageChange = () => {
-    setIsLoggedIn(localStorage.getItem('isLoggedIn') === 'true');
-  };
+  async function checkAuth() {
+    try {
+      const response = await fetch('/api/check-auth', {
+        method: 'GET',
+        credentials: 'include'  // ensures HttpOnly cookie is sent
+      });
+      if (response.ok) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    } catch (error) {
+      setIsLoggedIn(false);
+    }
+  }
 
-  window.addEventListener('storage', handleStorageChange);
-  const interval = setInterval(handleStorageChange, 1000);
-
-  return () => {
-    window.removeEventListener('storage', handleStorageChange);
-    clearInterval(interval);
-  };
+  checkAuth();
 }, []);
+
 
 useEffect(() => {
   if (consent === 'accept') {

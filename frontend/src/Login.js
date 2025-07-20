@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { useNavigate } from 'react-router-dom'; // ✅ IMPORT
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage({ consent, setIsLoggedIn }) {
   const [formData, setFormData] = useState({
@@ -11,63 +11,55 @@ export default function LoginPage({ consent, setIsLoggedIn }) {
 
   const [isValid, setIsValid] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
-const navigate = useNavigate(); // ✅ INITIALIZE
-  // Validate email whenever formData.email changes
-useEffect(() => {
-  const email = formData.email;
-  const password = formData.password;
-  const confirm_password = formData.confirm_password;
- let valid = false;
+  const navigate = useNavigate();
 
-   if (isLogin) {
-     // Login: just check email and password
-     valid = email.length > 6 && email.includes('@') && password.length > 6;
-   } else {
-     // Signup: check email, password, and confirm_password match
-     valid =
-       email.length > 6 &&
-       email.includes('@') &&
-       password.length > 6 &&
-       password === confirm_password;
-   }
+  useEffect(() => {
+    const { email, password, confirm_password } = formData;
+    let valid = false;
 
-   setIsValid(valid);
- }, [formData.email, formData.password, formData.confirm_password, isLogin]);
+    if (isLogin) {
+      valid = email.length > 6 && email.includes('@') && password.length > 6;
+    } else {
+      valid =
+        email.length > 6 &&
+        email.includes('@') &&
+        password.length > 6 &&
+        password === confirm_password;
+    }
 
+    setIsValid(valid);
+  }, [formData, isLogin]);
 
   function handleChange(e) {
     const { name, value } = e.target;
-
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value,
-    }));
+    setFormData(prevData => ({ ...prevData, [name]: value }));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(`API base URL: ${process.env.REACT_APP_API_BASE_URL}`);
 
     const endpoint = isLogin ? '/api/login/authenticate' : '/api/login';
 
     fetch(`${process.env.REACT_APP_API_BASE_URL}${endpoint}`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
+      credentials: 'include', // ✅ IMPORTANT: Allows cookie to be stored
       body: JSON.stringify(formData)
     })
       .then(async response => {
         if (response.ok) {
           if (isLogin) {
             alert('Login successful!');
-            localStorage.setItem('isLoggedIn', 'true'); // ✅ set login flag
-            setIsLoggedIn(true); // ✅ immediately set login status
+            localStorage.setItem('isLoggedIn', 'true');
+            setIsLoggedIn(true);
             navigate('/contact-messages');
           } else {
             alert('Signup successful!');
           }
-          setFormData({ name: '', email: '', password: '', confirm_password: '' });
+
+          setFormData({ email: '', password: '', confirm_password: '' });
         } else if (response.status === 409 && !isLogin) {
           alert('Email already registered. Please log in.');
         } else if (response.status === 401 && isLogin) {
@@ -81,58 +73,52 @@ useEffect(() => {
         alert('Server error.');
       });
 
-
-      if (consent === 'accept' && window.gtag) {
-              window.gtag('event', 'form_submit', {
-                event_category: 'User Interaction',
-                event_label: 'User Email',
-                value: formData.email
-              });
-            }
+    if (consent === 'accept' && window.gtag) {
+      window.gtag('event', 'form_submit', {
+        event_category: 'User Interaction',
+        event_label: 'User Email',
+        value: formData.email
+      });
+    }
   }
 
   return (
     <>
-        <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
-
-        <form onSubmit={handleSubmit}>
+      <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+      <form onSubmit={handleSubmit}>
         <label>Email: </label>
-          <input name="email" value={formData.email} onChange={handleChange} required />
-          <br />
-          <br />
-          <label>Password: </label>
-          <input name="password" value={formData.password} onChange={handleChange} required />
-          <br />
-          <br />
-
-          {!isLogin && (
-            <div>
+        <input name="email" value={formData.email} onChange={handleChange} required />
+        <br /><br />
+        <label>Password: </label>
+        <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+        <br /><br />
+        {!isLogin && (
+          <>
             <label>Confirm Password: </label>
             <input
+              type="password"
               name="confirm_password"
               value={formData.confirm_password}
               onChange={handleChange}
               required
             />
-            <br />
-                      <br />
-            </div>
-          )}
+            <br /><br />
+          </>
+        )}
+        <button type="submit" disabled={!isValid}>
+          {isLogin ? 'Login' : 'Sign Up'}
+        </button>
+      </form>
 
-          <button type="submit" disabled={!isValid}>
-            {isLogin ? 'Login' : 'Sign Up'}
-          </button>
-        </form>
-
-        <p style={{ marginTop: '10px' }}>
-          {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
-          <span
-            style={{ color: 'blue', cursor: 'pointer' }}
-            onClick={() => setIsLogin(!isLogin)}
-          >
-            {isLogin ? 'Sign Up' : 'Login'}
-          </span>
-        </p>
-      </>
+      <p style={{ marginTop: '10px' }}>
+        {isLogin ? "Don't have an account?" : 'Already have an account?'}{' '}
+        <span
+          style={{ color: 'blue', cursor: 'pointer' }}
+          onClick={() => setIsLogin(!isLogin)}
+        >
+          {isLogin ? 'Sign Up' : 'Login'}
+        </span>
+      </p>
+    </>
   );
 }
