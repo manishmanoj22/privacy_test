@@ -45,7 +45,7 @@ public class LoginController {
             String token = jwtUtil.generateToken(new org.springframework.security.core.userdetails.User(
                     loginData.getEmail(), "", java.util.Collections.emptyList()));
 
-            Cookie cookie = new Cookie("jwtToken", token); // name must match what frontend checks
+            Cookie cookie = new Cookie("jwt", token); // name must match what frontend checks
             cookie.setHttpOnly(true);
             cookie.setSecure(true); // Use HTTPS in production
             cookie.setPath("/");
@@ -64,11 +64,11 @@ public class LoginController {
 
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if ("jwtToken".equals(cookie.getName())) {
+                if ("jwt".equals(cookie.getName())) {
                     String token = cookie.getValue();
                     try {
                         Claims claims = Jwts.parser()
-                                .setSigningKey("secret".getBytes()) // Match secret from JwtUtil
+                                .setSigningKey("your-secret-key") // Match secret from JwtUtil
                                 .parseClaimsJws(token)
                                 .getBody();
 
