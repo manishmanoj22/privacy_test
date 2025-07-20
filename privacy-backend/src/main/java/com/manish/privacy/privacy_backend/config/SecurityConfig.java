@@ -1,6 +1,7 @@
 package com.manish.privacy.privacy_backend.config;
 
 import com.manish.privacy.privacy_backend.service.CustomUserDetailsService;
+import com.manish.privacy.privacy_backend.config.JwtAuthFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -50,11 +51,12 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Put your frontend URL here
-        configuration.setAllowedOriginPatterns(List.of("https://privacy-test-frontend.onrender.com"));
+        // ✅ Use exact frontend URL (NO wildcard if using credentials)
+        configuration.setAllowedOrigins(List.of("https://privacy-test-frontend.onrender.com"));
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowCredentials(true);
         configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+        configuration.setExposedHeaders(List.of("Set-Cookie")); // Optional: expose cookies
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
