@@ -12,7 +12,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.Optional;
 
-@CrossOrigin(origins = "*", allowCredentials = "true")
+
 @RestController
 @RequestMapping("/api/login")
 public class LoginController {
