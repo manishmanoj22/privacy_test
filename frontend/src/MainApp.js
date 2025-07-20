@@ -50,7 +50,7 @@ export default function MainApp() {
 useEffect(() => {
   async function checkAuth() {
     try {
-      const response = await fetch('/api/check-auth', {
+      const response = await fetch("https://privacy-test.onrender.com/api/login/check-auth", {
         method: 'GET',
         credentials: 'include'  // ensures HttpOnly cookie is sent
       });
