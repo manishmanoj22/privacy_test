@@ -52,7 +52,7 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // Replace this with your frontend origin URL in dev or production
-        configuration.setAllowedOriginPatterns(List.of("https://privacy-test-frontend.onrender.com/"));
+        configuration.setAllowedOriginPatterns(List.of("https://privacy-test-frontend.onrender.com"));
 
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowCredentials(true);
