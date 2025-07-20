@@ -64,7 +64,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOriginPatterns(List.of("http://localhost:3000", "https://privacy-test.onrender.com"));
+        config.setAllowedOriginPatterns(List.of("http://localhost:3000", "https://privacy-test-frontend.onrender.com"));
         config.setAllowCredentials(true);
         config.setAllowedHeaders(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
