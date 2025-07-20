@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="CORS error resolution">
+    <list default="true" id="f7746b56-8001-4c6d-9bef-9ea0b22bae88" name="Changes" comment="403 ERROR authentication resolution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/privacy-backend/src/main/java/com/manish/privacy/privacy_backend/config/SecurityConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +267,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753008205481</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="403 ERROR authentication resolution">
+      <option name="closed" value="true" />
+      <created>1753009850888</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1753009850888</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -304,6 +311,7 @@
     <MESSAGE value="Login correction v2" />
     <MESSAGE value="JWT token and soring security" />
     <MESSAGE value="CORS error resolution" />
-    <option name="LAST_COMMIT_MESSAGE" value="CORS error resolution" />
+    <MESSAGE value="403 ERROR authentication resolution" />
+    <option name="LAST_COMMIT_MESSAGE" value="403 ERROR authentication resolution" />
   </component>
 </project>
