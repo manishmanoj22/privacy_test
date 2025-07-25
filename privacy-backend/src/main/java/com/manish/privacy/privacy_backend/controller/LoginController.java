@@ -58,13 +58,17 @@ public class LoginController {
                     )
             );
 
-            String cookieString = String.format(
-                    "jwt=%s; HttpOnly; Secure; SameSite=None; Path=/; Max-Age=%d",
-                    token, 24 * 60 * 60
-            );
-            response.setHeader("Set-Cookie", cookieString);
+            // ✅ Create and set cookie properly
+            Cookie cookie = new Cookie("jwt", token);
+            cookie.setHttpOnly(true);
+            cookie.setSecure(true); // HTTPS required for SameSite=None
+            cookie.setPath("/");
+            cookie.setMaxAge(24 * 60 * 60); // 1 day
+            cookie.setAttribute("SameSite", "None");
 
-            System.out.println("[Authenticate] JWT token generated and cookie set.");
+            response.addCookie(cookie);
+
+            System.out.println("[Authenticate] JWT token generated and cookie added.");
             return ResponseEntity.ok("Login successful");
         }
 
@@ -85,7 +89,7 @@ public class LoginController {
                     System.out.println("[CheckAuth] JWT found: " + token);
 
                     try {
-                        Claims claims = io.jsonwebtoken.Jwts.parser()
+                        Claims claims = Jwts.parser()
                                 .setSigningKey(jwtUtil.getSecretKey().getBytes())
                                 .parseClaimsJws(token)
                                 .getBody();
@@ -103,5 +107,19 @@ public class LoginController {
 
         System.out.println("[CheckAuth] No JWT token found in cookies.");
         return ResponseEntity.status(401).body("No token found");
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response) {
+        Cookie cookie = new Cookie("jwt", "");
+        cookie.setHttpOnly(true);
+        cookie.setSecure(true);
+        cookie.setPath("/");
+        cookie.setMaxAge(0); // Expire immediately
+        cookie.setAttribute("SameSite", "None");
+        response.addCookie(cookie);
+
+        System.out.println("[Logout] JWT cookie cleared.");
+        return ResponseEntity.ok("Logged out successfully");
     }
 }
