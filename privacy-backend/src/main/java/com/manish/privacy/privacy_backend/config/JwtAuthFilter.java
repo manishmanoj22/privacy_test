@@ -30,6 +30,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();
+        System.out.println("Filtering path: " + path);
         // Add all public paths here that don't need JWT
         return path.startsWith("/api/login");
     }
