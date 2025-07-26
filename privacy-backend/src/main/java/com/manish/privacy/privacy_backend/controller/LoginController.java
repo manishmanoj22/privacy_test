@@ -94,12 +94,7 @@ public class LoginController {
                     System.out.println("[CheckAuth] JWT found: " + token);
 
                     try {
-                        Claims claims = Jwts.parser()
-                                .setSigningKey(jwtUtil.getSecretKey().getBytes())
-                                .parseClaimsJws(token)
-                                .getBody();
-
-                        String email = claims.getSubject();
+                        String email = jwtUtil.extractUsername(token);
                         System.out.println("[CheckAuth] Token valid for user: " + email);
                         return ResponseEntity.ok("Authenticated as " + email);
                     } catch (Exception e) {
