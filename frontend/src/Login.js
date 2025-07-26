@@ -41,15 +41,28 @@ export default function LoginPage({ consent, setIsLoggedIn }) {
     const endpoint = isLogin ? '/api/login/authenticate' : '/api/login';
     const apiUrl = `${process.env.REACT_APP_API_BASE_URL}${endpoint}`;
 
-    console.log('Submitting to:', apiUrl); // 🪵 Debugging tip
+    // Prepare payload based on login/signup mode
+    let payload;
+    if (isLogin) {
+      payload = {
+        email: formData.email,
+        password: formData.password
+      };
+    } else {
+      // Signup - send all fields (including confirm_password)
+      payload = { ...formData };
+    }
+
+    console.log('Submitting to:', apiUrl);
+    console.log('Payload:', payload);
 
     fetch(apiUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      credentials: 'include', // ✅ Include cookie
-      body: JSON.stringify(formData)
+      credentials: 'include', // send cookies
+      body: JSON.stringify(payload)
     })
       .then(async response => {
         if (response.ok) {
@@ -61,7 +74,6 @@ export default function LoginPage({ consent, setIsLoggedIn }) {
           } else {
             alert('Signup successful!');
           }
-
           setFormData({ email: '', password: '', confirm_password: '' });
         } else if (response.status === 409 && !isLogin) {
           alert('Email already registered. Please log in.');
