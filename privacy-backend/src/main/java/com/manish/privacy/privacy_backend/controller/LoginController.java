@@ -45,35 +45,40 @@ public class LoginController {
 
     @PostMapping("/authenticate")
     public ResponseEntity<?> authenticate(@RequestBody LoginData loginData, HttpServletResponse response) {
-        System.out.println("[Authenticate] Login attempt for email: " + loginData.getEmail());
+        try {
+            System.out.println("[Authenticate] Login attempt for email: " + loginData.getEmail());
 
-        Optional<LoginData> userOpt = loginDataRepository.findByEmail(loginData.getEmail());
+            Optional<LoginData> userOpt = loginDataRepository.findByEmail(loginData.getEmail());
 
-        if (userOpt.isPresent() && passwordEncoder.matches(loginData.getPassword(), userOpt.get().getPassword())) {
-            System.out.println("[Authenticate] Password match for: " + loginData.getEmail());
+            if (userOpt.isPresent() && passwordEncoder.matches(loginData.getPassword(), userOpt.get().getPassword())) {
+                System.out.println("[Authenticate] Password match for: " + loginData.getEmail());
 
-            String token = jwtUtil.generateToken(
-                    new org.springframework.security.core.userdetails.User(
-                            loginData.getEmail(), "", java.util.Collections.emptyList()
-                    )
-            );
+                String token = jwtUtil.generateToken(
+                        new org.springframework.security.core.userdetails.User(
+                                loginData.getEmail(), "", java.util.Collections.emptyList()
+                        )
+                );
 
-            // ✅ Create and set cookie properly
-            Cookie cookie = new Cookie("jwt", token);
-            cookie.setHttpOnly(true);
-            cookie.setSecure(true); // HTTPS required for SameSite=None
-            cookie.setPath("/");
-            cookie.setMaxAge(24 * 60 * 60); // 1 day
-            cookie.setAttribute("SameSite", "None");
+                Cookie cookie = new Cookie("jwt", token);
+                cookie.setHttpOnly(true);
+                cookie.setSecure(true);
+                cookie.setPath("/");
+                cookie.setMaxAge(24 * 60 * 60);
+                cookie.setAttribute("SameSite", "None");
 
-            response.addCookie(cookie);
+                response.addCookie(cookie);
 
-            System.out.println("[Authenticate] JWT token generated and cookie added.");
-            return ResponseEntity.ok("Login successful");
+                System.out.println("[Authenticate] JWT token generated and cookie added.");
+                return ResponseEntity.ok("Login successful");
+            }
+
+            System.out.println("[Authenticate] Invalid credentials for email: " + loginData.getEmail());
+            return ResponseEntity.status(401).body("Invalid credentials");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body("Internal Server Error: " + e.getMessage());
         }
-
-        System.out.println("[Authenticate] Invalid credentials for email: " + loginData.getEmail());
-        return ResponseEntity.status(401).body("Invalid credentials");
     }
 
     @GetMapping("/check-auth")
