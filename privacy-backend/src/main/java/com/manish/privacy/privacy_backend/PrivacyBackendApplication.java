@@ -10,7 +10,7 @@ public class PrivacyBackendApplication {
 
 		SpringApplication.run(PrivacyBackendApplication.class, args);
 
-		System.out.println("Hello, World2!");
+		System.out.println("Hello, World1!");
 	}
 
 }
